@@ -1,4 +1,4 @@
-FlatTrack
+flattrack
 =========
 
 FlatTrack is a place for flatmates to visualize chores.
@@ -20,3 +20,5 @@ Chores
 - Tidy Up
 - Wash the Clothes
 - Sweeping the apartment floor
+- Brought away glas
+- Deposited bottles
