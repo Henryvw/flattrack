@@ -1,11 +1,18 @@
+<!DOCTYPE html>
+<html>
 <head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" type="text/css" href="flattrack.css"/>
+  <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+  <title>Flattrack Profile</title>
   <link rel="stylesheet" type="text/css" href="flattrack.css"/>
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu">
 </head>
 
-
+<body>
 <h1> Profile </h1> 
-
 
 <table border="0">
 
@@ -38,5 +45,29 @@
 </table>
 
 <p> </p>
+
+<div id= "weather_icon">
+
+</div>
 <button type="button">Change Password</button>
 
+<p> </p>
+
+
+
+
+<script>
+$.ajax({
+  url: "http://api.wunderground.com/api/b334aadaa0338006/geolookup/conditions/q/Germany/Berlin.json",
+  dataType : "jsonp",
+  success : function(parsed_json) {
+  var temp_c = parsed_json['current_observation']['temp_c'];
+  var weather_img = parsed_json['current_observation']['icon_url']; 
+  $("#weather_icon").prepend('<img id="weather_image" src="http://icons-ak.wxug.com/i/c/k/nt_clear.gif" />');
+  alert("Current temperature in " + location + " is: " + temp_c + weather_img);
+  }
+});
+</script>
+
+</body>
+</html>
