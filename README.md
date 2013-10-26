@@ -1,4 +1,4 @@
-flattrack
+FlatTrack
 =========
 
 FlatTrack is a place for flatmates to visualize chores.
