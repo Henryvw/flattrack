@@ -1,4 +1,11 @@
-.name {
+
+  body {
+    font-family: 'Ubuntu';
+  }
+
+
+.title {
     font-style: bold;
+    font-style: italic;
     margin-bottom: 10px;
 }
