@@ -1,15 +1,75 @@
 
 body {
   font-family: 'Ubuntu';
+  height:1136px;
+  width:640px;
+  
 }
 
+.frame {
+  height:1136px;
+  width:640px;
+  background: url("Startpage.png");
+}
 
-
-.pencil {
-  font: ;
-  background: url(/assets/stoic_hacks_logo.png);
+.penbox {
+  height:120px;
+  width: 120px;
   background-color:#15B9D6;
+  left: 502px;
+  top: 20px;
+  position: absolute;
+
 }
+
+#pen {
+  text-align:center;
+  padding-top: 20px;
+
+}
+
+.sidebar {
+  height:670px;
+  width: 120px;
+  position: absolute;
+  left: 502px;
+  top: 164px;
+  background-color:#15B9D6;
+
+
+}
+
+#trash {
+  text-align:center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+#cook {
+  text-align:center;
+  padding-top: 20px;
+}
+
+#shower {
+  text-align:center;
+  padding-top: 20px;
+}
+
+#dishes {
+  text-align:center;
+  padding-top: 20px;
+}
+
+#toilet {
+  text-align:center;
+  padding-top: 10px;
+}
+
+#laundry {
+  text-align:center;
+  padding-top: 20px;
+}
+
 
 .title {
     font-size: 20px;
