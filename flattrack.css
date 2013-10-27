@@ -6,6 +6,14 @@ body {
   
 }
 
+#SauberLogo {
+  width:20px;
+  height: auto;
+  left: 30px;
+  top: 30px;
+  position: absolute;
+}
+
 .frame {
   height:1136px;
   width:640px;
@@ -19,12 +27,14 @@ body {
   left: 502px;
   top: 20px;
   position: absolute;
+  border-radius: 20px;
 
 }
 
 #pen {
   text-align:center;
   padding-top: 20px;
+
 
 }
 
@@ -35,7 +45,7 @@ body {
   left: 502px;
   top: 164px;
   background-color:#15B9D6;
-
+  border-radius: 20px;
 
 }
 
@@ -78,11 +88,11 @@ body {
 }
 
 .bottombar {
-  height:120px;
+  height:100px;
   width: 16%;
   position: absolute;
-  left: 0px;
-  top: -100px;
+  left: -455px;
+  top: -265px;
   background-color:#202226;
 }
 
