@@ -12,9 +12,7 @@ SauberBam! visualizes your flat's chores and the performance of your flatmates i
 SauberBam!
 
 
-FlatTrack is a place for flatmates to visualize chores.
-
-Chores 
+Just A Sample of The Chores That Can Be SauberBammed!
 
 - Took Out Garbage
 - Cleaned Dishes
