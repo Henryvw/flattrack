@@ -4,6 +4,13 @@ body {
 }
 
 
+
+.pencil {
+  font: ;
+  background: url(/assets/stoic_hacks_logo.png);
+  background-color:#15B9D6;
+}
+
 .title {
     font-size: 20px;
     font-weight: bold;
