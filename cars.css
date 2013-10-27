@@ -1,0 +1,91 @@
+body {
+    margin:0;
+}
+#car1, #car2 {
+    -webkit-transition: top .7s ease, left .5s linear;
+}
+
+#lane {
+    position: absolute; width:640px; height:1136px;
+    background-image:url("https://s3-eu-west-1.amazonaws.com/sauberbam/street.png");
+    overflow:hidden;
+}
+
+#middlelane {
+    position: absolute; height:10000px; left:315px; width:5px; top:-7000px;
+    background-image:url("https://s3-eu-west-1.amazonaws.com/sauberbam/middle_line.png");
+}
+
+.carimg {
+    width:71px;height:138px;
+}
+
+.car { position:absolute; top:980px; }
+.car.lane1  {
+    left:194px;
+}
+.car.lane2 {
+    left:378px;
+}
+.car.bamm {
+    left:320px !important;
+}
+
+.car .bubble {
+    position:absolute;
+    width:179px;
+    height:119px;
+}
+.car.lane1 .bubble {
+    left: -185px;
+}
+
+.car.lane2 .bubble {
+    left: 80px;
+}
+
+.bubble .driver {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    border-radius: 50px;
+}
+
+.lane1 .bubble .driver {
+    right: 76px;
+    top: 20px;
+}
+
+.lane2 .bubble .driver {
+    right: 32px;
+    top: 20px;
+}
+.lane1 .bubble.red {
+    background-image:url("https://s3-eu-west-1.amazonaws.com/sauberbam/red_bubble_r.png");
+}
+.lane1 .bubble.blue {
+    background-image:url("https://s3-eu-west-1.amazonaws.com/sauberbam/blue_bubble_r.png");
+}
+.lane2 .bubble.red {
+    background-image:url("https://s3-eu-west-1.amazonaws.com/sauberbam/red_bubble_l.png");
+}
+.lane2 .bubble.blue {
+    background-image:url("https://s3-eu-west-1.amazonaws.com/sauberbam/blue_bubble_l.png");
+}
+#bamm {
+    width:277px;
+    height:207px;
+    background-image:url("https://s3-eu-west-1.amazonaws.com/sauberbam/bam.png");
+}
+#car1 .carimg {
+    background-image:url("https://s3-eu-west-1.amazonaws.com/sauberbam/blue_car.png");
+}
+#car2 .carimg {
+    background-image:url("https://s3-eu-west-1.amazonaws.com/sauberbam/red_car.png");
+}
+
+#bamm {
+    left:40%;
+    position:absolute;
+    display:none;
+}

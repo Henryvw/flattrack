@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=false;">
+   <!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+   <link rel="stylesheet" type="text/css" href="flattrack.css"/>
+   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu">
+   <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <title>SauberBam!</title>
+</head>
+<body>
+
+<div class = "frame">
+  
+  <div id = "SauberLogo">
+    <img src = "https://s3-eu-west-1.amazonaws.com/sauberbam/SmallLogo.png">
+  </div>
+  <div class = "penbox">
+    <div id = "pen">
+      <img src = "https://s3-eu-west-1.amazonaws.com/sauberbam/pen.png">
+    </div>
+  </div>
+  <div class = "sidebar">
+    <a href="submittask.php?task=trash">
+      <div id = "trash">
+        <img src = "https://s3-eu-west-1.amazonaws.com/sauberbam/trash.png">
+      </div>
+    </a>
+    <a href="submittask.php?task=cook">
+      <div id = "cook">
+        <img src = "https://s3-eu-west-1.amazonaws.com/sauberbam/cook.png">
+      </div>
+    </a>
+    <a href="submittask.php?task=shower">
+      <div id = "shower">
+        <img src = "https://s3-eu-west-1.amazonaws.com/sauberbam/shower.png">
+      </div>
+    </a>
+    <a href="submittask.php?task=dishes">
+      <div id = "dishes">
+        <img src = "https://s3-eu-west-1.amazonaws.com/sauberbam/dishes.png">
+      </div>
+    </a>
+    <a href="submittask.php?task=toilet">
+      <div id = "toilet">
+        <img src = "https://s3-eu-west-1.amazonaws.com/sauberbam/toilet.png">
+      </div>
+    </a>
+    <a href="submittask.php?task=laundry">
+      <div id = "laundry">
+        <img src = "https://s3-eu-west-1.amazonaws.com/sauberbam/laundry.png">
+      </div>
+    </a>
+  <a href="challenge.php">
+      <div id = "trophy">
+        <img src = "https://s3-eu-west-1.amazonaws.com/sauberbam/trophy.png"   
+      </div>
+  </a>
+  </div>
+  
+<div class="bottombar">
+  <a href="menu.php">
+      <div id = "menu">
+        <img src = "https://s3-eu-west-1.amazonaws.com/sauberbam/menu.png">
+      </div>
+  </a>
+
+  </div>
+
+<!--   <div id="weather_icon"></div>
+  <div id="weather_text"></div>
+ -->
+</div>
+
+
+
+<script type="text/javascript">
+
+navigator.geolocation.getCurrentPosition(foundLocation, noLocation);
+
+ function noLocation()
+ {
+   //alert('Could not find location');
+ }
+
+function foundLocation(position)
+ {
+   var lat = position.coords.latitude;
+   var long = position.coords.longitude;
+
+$.ajax({
+  url: "http://api.wunderground.com/api/b334aadaa0338006/geolookup/conditions/q/" + lat + ',' + long + ".json",
+  dataType : "jsonp",
+  success : function(parsed_json) {
+  var temp_c = parsed_json['current_observation']['temp_c'];
+  var weather_url = parsed_json['current_observation']['icon_url'];
+  var weather_image = $('<img id="dynamic">');  
+  weather_image.attr('src', weather_url);
+  // $("#weather_icon").prepend( $weather_image);
+  weather_image.appendTo('#weather_icon');
+  $('#weather_text').text(temp_c);
+  }
+});
+}
+
+$(document).ready(function(){
+  
+   $('input').click(function(){
+      $.ajax({
+  type: "POST",
+  url: submittask.php,
+  data: "bathroom"
+  });
+      $('#bug').animate({height: '-=100px'},200);
+   });
+
+   $('img').click(function(){
+      $('#trash').animate({height: '-=100px'},200);
+   });
+   $('input').click(function(){
+      $('#bug').animate({height: '-=100px'},200);
+   });
+});
+</script>
