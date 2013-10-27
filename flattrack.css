@@ -70,10 +70,28 @@ body {
   padding-top: 20px;
 }
 
-
 .title {
     font-size: 20px;
     font-weight: bold;
     font-style: italic;
     margin-bottom: 10px;
+}
+
+.bottombar {
+  height:120px;
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: -100px;
+  background-color:#202226;
+}
+
+#trophy {
+  text-align:center;
+  padding-top: 210px;
+}
+
+#menu {
+  text-align:center;
+  padding-top: -400px;
 }
