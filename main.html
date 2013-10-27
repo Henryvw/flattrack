@@ -33,7 +33,6 @@ function foundLocation(position)
  {
    var lat = position.coords.latitude;
    var long = position.coords.longitude;
-   alert('Found location: ' + lat + ', ' + long);
 
 $.ajax({
   url: "http://api.wunderground.com/api/b334aadaa0338006/geolookup/conditions/q/" + lat + ',' + long + ".json",
