@@ -5,23 +5,68 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
    <link rel="stylesheet" type="text/css" href="flattrack.css"/>
+   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu">
    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-    <title>Flattrack Main</title>
+    <title>Flattrack</title>
 </head>
 <body>
 <h1>Flattrack</h1>
-<img id="bug" src="iconmonstr-bug-3-icon-256.png" name="bug"/>
+<div id="weather_icon"></div>
+<div id="weather_text"></div>
+<img id="bug" src="iconmonstr-bug-3-icon-256.png"/>
 <div id="trash"><input type="image" src="iconmonstr-trash-can-12-icon-256.png" name="trash"/>
 
-	<img src="iconmonstr-trash-can-12-icon-256.png"/><img src="iconmonstr-trash-can-12-icon-256.png"/></div>
+  <img src="iconmonstr-trash-can-12-icon-256.png"/><img src="iconmonstr-trash-can-12-icon-256.png"/></div>
 <div id="trash"><img src="iconmonstr-trash-can-12-icon-256.png"/><img src="iconmonstr-trash-can-12-icon-256.png"/></div>
 <br>
 <div id="trash"><img src="iconmonstr-trash-can-12-icon-256.png"/><img src="iconmonstr-trash-can-12-icon-256.png"/></div>
 <script type="text/javascript">
+
+navigator.geolocation.getCurrentPosition(foundLocation, noLocation);
+
+ function noLocation()
+ {
+   alert('Could not find location');
+ }
+
+function foundLocation(position)
+ {
+   var lat = position.coords.latitude;
+   var long = position.coords.longitude;
+   alert('Found location: ' + lat + ', ' + long);
+
+$.ajax({
+  url: "http://api.wunderground.com/api/b334aadaa0338006/geolookup/conditions/q/" + lat + ',' + long + ".json",
+  dataType : "jsonp",
+  success : function(parsed_json) {
+  var temp_c = parsed_json['current_observation']['temp_c'];
+  var weather_url = parsed_json['current_observation']['icon_url'];
+  var weather_image = $('<img id="dynamic">');  
+  weather_image.attr('src', weather_url);
+  // $("#weather_icon").prepend( $weather_image);
+  weather_image.appendTo('#weather_icon');
+  $('#weather_text').text(temp_c);
+  }
+});
+}
+
 $(document).ready(function(){
-    $('img').click(function(){
-    	$('#bug').animate({left: '-=100px'},150);
-    });
+  
+   $('input').click(function(){
+      $.ajax({
+  type: "POST",
+  url: submittask.php,
+  data: "bathroom"
+  });
+      $('#bug').animate({height: '-=100px'},200);
+   });
+
+   $('img').click(function(){
+      $('#trash').animate({height: '-=100px'},200);
+   });
+   $('input').click(function(){
+      $('#bug').animate({height: '-=100px'},200);
+   });
 });
 </script>
 

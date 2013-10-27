@@ -57,20 +57,44 @@
 
 
 
+
 <script>
+
+navigator.geolocation.getCurrentPosition(foundLocation, noLocation);
+
+ function foundLocation(position)
+ {
+   var lat = position.coords.latitude;
+   var long = position.coords.longitude;
+   alert('Found location: ' + lat + ', ' + long);
+ }
+
+ function noLocation()
+ {
+   alert('Could not find location');
+ }
+
+
+ function foundLocation(position)
+ {
+   var lat = position.coords.latitude;
+   var long = position.coords.longitude;
+
 $.ajax({
-  url: "http://api.wunderground.com/api/b334aadaa0338006/geolookup/conditions/q/Germany/Berlin.json",
+
+  url: "http://api.wunderground.com/api/b334aadaa0338006/geolookup/conditions/q/" + lat + ',' + long + ".json",
   dataType : "jsonp",
   success : function(parsed_json) {
   var temp_c = parsed_json['current_observation']['temp_c'];
   var weather_url = parsed_json['current_observation']['icon_url'];
   var weather_image = $('<img id="dynamic">');  
   weather_image.attr('src', weather_url);
-  // $("#weather_icon").prepend( $weather_image);
   weather_image.appendTo('#weather_icon');
-  alert("Current temperature is: " + temp_c + weather_image.src);
+  alert("Current temperature is: " + temp_c);
   }
 });
+
+}
 </script>
 
 </body>
